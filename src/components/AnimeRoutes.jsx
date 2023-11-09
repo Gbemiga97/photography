@@ -1,8 +1,15 @@
+import { Route, Routes } from "react-router-dom"
+import { About, Contact, Home, Portfolio } from "../pages"
 
 
 const AnimeRoutes = () => {
   return (
-    <div>AnimeRoutes</div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="portfolio" element={<Portfolio />} />
+      <Route path="contact" element={<Contact />} />
+    </Routes>
   )
 }
 

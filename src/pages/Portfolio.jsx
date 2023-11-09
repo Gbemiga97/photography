@@ -2,7 +2,9 @@
 
 const Portfolio = () => {
   return (
-    <div>Portfolio</div>
+    <section className="section">
+      portfolio
+    </section>
   )
 }
 
