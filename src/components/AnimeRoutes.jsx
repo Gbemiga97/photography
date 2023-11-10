@@ -1,15 +1,21 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 import { About, Contact, Home, Portfolio } from "../pages"
-
+import { AnimatePresence } from "framer-motion"
 
 const AnimeRoutes = () => {
+  
+  const location = useLocation()
+
+
   return (
-    <Routes>
+    <AnimatePresence initial={true} mode="wait">
+    <Routes key={location.pathname} location={location} >
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
       <Route path="portfolio" element={<Portfolio />} />
       <Route path="contact" element={<Contact />} />
     </Routes>
+    </AnimatePresence>
   )
 }
 

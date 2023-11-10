@@ -6,12 +6,12 @@ import { AnimeRoutes, Header } from "./components";
 
 function App() {
   return (
-    <>
+    <div className="overflow-hidden">
       <BrowserRouter>
       <Header />
       <AnimeRoutes />
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
