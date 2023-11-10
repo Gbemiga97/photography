@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 import { images, variants } from "../utils"
 import { motion } from "framer-motion"
+import { useCursorContext } from "../context/CursorContext"
 
 
 const Home = () => {
+
+
+  const {mouseEnterHandler, mouseLeaveHandler} = useCursorContext()
+
   return (
     <motion.section 
     initial={{opacity: 0}}
@@ -20,6 +25,8 @@ const Home = () => {
              animate={{opacity: 1, y: 0}}
              exit={{opacity: 0, y: '-50%'}}
              transition={variants.transition1}
+             onMouseEnter={mouseEnterHandler}
+             onMouseLeave={mouseLeaveHandler}
           className="w-full pt-36 pb-14 lg:pt-0 lg:pb-0 lg:w-auto
           z-10 lg:absolute flex flex-col justify-center items-center lg:items-start">
             <h1 className="h1">
@@ -42,6 +49,8 @@ const Home = () => {
             transition={variants.transition1}
             className="relative lg:-right-40 overflow-hidden h-screen">
               <motion.img 
+                onMouseEnter={mouseEnterHandler}
+                onMouseLeave={mouseLeaveHandler}
               whileHover={{scale: 1.1}}
               transition={variants.transition1}
               src={images.HomeWoman} alt="woman" />

@@ -2,18 +2,30 @@ import  {} from 'react-icons'
 import { Link } from 'react-router-dom'
 import { data, images } from '../utils'
 import { MobileNav, Socials } from '../components'
+import { useCursorContext } from '../context/CursorContext'
 
 const Header = () => {
+
+  const {mouseEnterHandler, mouseLeaveHandler} = useCursorContext()
+ 
+
+
   return (
     <header className='fixed w-full px-[1.8rem] lg:px-[100px] z-30
     h-[100px] lg:h-[140px] flex items-center'>
       <div className=" flex flex-col  lg:flex-row lg:items-center w-full justify-between">
 
-        <Link to='/' className='max-w-[200px]'>
+        <Link to='/'
+         onMouseEnter={mouseEnterHandler}
+         onMouseLeave={mouseLeaveHandler}
+        className='max-w-[200px]'>
         <img src={images.Logo} alt="logo" />
         </Link>
         
-        <nav className='hidden xl:flex '>
+        <nav
+         onMouseEnter={mouseEnterHandler}
+         onMouseLeave={mouseLeaveHandler}
+        className='hidden xl:flex '>
           <ul className='flex gap-x-12 font-semibold'>
             {
               data.navData.map(({name, href}, i) => (

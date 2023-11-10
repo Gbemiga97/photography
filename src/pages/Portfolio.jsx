@@ -1,15 +1,32 @@
 import { Link } from "react-router-dom"
-import { images } from "../utils"
-
+import { images, variants } from "../utils"
+import { motion } from "framer-motion"
+import { useCursorContext } from "../context/CursorContext"
 
 const Portfolio = () => {
+
+
+  const {mouseEnterHandler, mouseLeaveHandler} = useCursorContext()
+
   return (
-    <section className="section">
+    <motion.section
+    initial={{opacity: 0, y: '100%'}}
+    animate={{opacity: 1, y: 0}}
+    exit={{opacity: 0, y:'100%'}}
+    transition={variants.transition1}
+    className="section">
      <div className="container mx-auto h-full relative">
       <div className="flex flex-col lg:flex-row h-full items-center 
       justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8">
 
-        <div className="flex flex-col lg:items-start">
+        <motion.div
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+            initial={{opacity: 0, y: '-80%'}}
+            animate={{opacity: 1, y: 0}}
+            exit={{opacity: 0, y:'-80%'}}
+            transition={variants.transition1}
+        className="flex flex-col lg:items-start">
           <h1 className="h1">
             Portfolio</h1>
           <p className="mb-12 max-w-[20rem] lg:max-w-full  ">
@@ -31,9 +48,12 @@ const Portfolio = () => {
             >
             Hire me
             </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-2 lg:gap-2">
+        <div 
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+        className="grid grid-cols-2 lg:gap-2">
           <div className="max-w-[250px] lg:max-w-[320px] h-[187px]
           lg:h-[220px] bg-accent overflow-hidden">
             <img
@@ -68,7 +88,7 @@ const Portfolio = () => {
         </div>
       </div>
      </div>
-    </section>
+    </motion.section>
   )
 }
 
