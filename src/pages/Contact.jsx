@@ -3,7 +3,7 @@
 const Contact = () => {
   return (
     <section className="section">
-      
+      contact
     </section>
   )
 }

@@ -1,20 +1,20 @@
 import  {} from 'react-icons'
 import { Link } from 'react-router-dom'
 import { data, images } from '../utils'
-
+import { MobileNav, Socials } from '../components'
 
 const Header = () => {
   return (
     <header className='fixed w-full px-[1.8rem] lg:px-[100px] z-30
     h-[100px] lg:h-[140px] flex items-center'>
-      <div className="flex flex-col lg:flex-row lg:items-center w-full justify-between">
+      <div className=" flex flex-col  lg:flex-row lg:items-center w-full justify-between">
 
-        <Link>
+        <Link to='/' className='max-w-[200px]'>
         <img src={images.Logo} alt="logo" />
         </Link>
-
-        <nav className='hidden lg:flex'>
-          <ul>
+        
+        <nav className='hidden xl:flex '>
+          <ul className='flex gap-x-12 font-semibold'>
             {
               data.navData.map(({name, href}, i) => (
                 <li key={i}>
@@ -30,6 +30,10 @@ const Header = () => {
           </ul>
         </nav>
       </div>
+
+        <Socials />
+
+        <MobileNav />
     </header>
   )
 }

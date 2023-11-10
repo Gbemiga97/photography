@@ -5,8 +5,21 @@
 };
 
 
+const menuVariants = {
+  hidden: {
+    x: '100%'
+  },
+  show: {
+    x: 0,
+    transition: {
+      ease: [0.6, 0.01, -0.05, 0.9 ],
+    }
+  }
+}
+
 const variants = {
-  transition1
+  transition1,
+  menuVariants,
 }
 
 export default variants
