@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { AnimeRoutes, Header } from "./components";
 import { useCursorContext } from "./context/CursorContext";
 
@@ -11,10 +11,10 @@ function App() {
 
   return (
     <div className="overflow-hidden">
-      <BrowserRouter>
+      <HashRouter>
       <Header />
       <AnimeRoutes />
-      </BrowserRouter>
+      </HashRouter>
       <motion.div
       variants={cursorVariants}
       animate={cursorBg}
